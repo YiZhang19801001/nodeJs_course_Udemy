@@ -1,8 +1,4 @@
-const chalk = require("chalk");
 const yargs = require("yargs");
-const { getNotes } = require("./notes.js");
-
-const command = process.argv[2].toLowerCase();
 
 //Create add command
 yargs.version(`1.1.0`);
