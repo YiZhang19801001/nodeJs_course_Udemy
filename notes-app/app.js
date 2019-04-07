@@ -11,8 +11,21 @@ yargs.version(`1.1.0`);
 yargs.command({
   command: `add`,
   describe: `Add a new note`,
-  handler: function() {
-    console.log("Adding a new note");
+
+  builder: {
+    title: {
+      describe: "Note title",
+      demandOption: true, // arguments is required
+      type: "string" // config the argument type
+    },
+    body: {
+      describe: "Note body",
+      demandOption: true,
+      type: "string"
+    }
+  },
+  handler: function(argv) {
+    console.log("Adding a new note", argv);
   }
 });
 
@@ -44,4 +57,4 @@ yargs.command({
   }
 });
 
-console.log(yargs.argv);
+yargs.parse(); //! Must have to call yargs to parse argv used for whole app
